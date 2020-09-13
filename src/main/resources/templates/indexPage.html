@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ch" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}">
+</head>
+<body class="container">
+<div th:insert="~{head :: head1}"></div>
+<br>
+<h5>用户列表</h5>
+<br>
+<br>
+    <div class="with:80%">
+    <div class="form-group">
+        <div class="col-sm-2 control-label">
+            <a href="/toAddUser" th:href="@{/toAddUser}" class="btn btn-info">新增</a>
+        </div>
+    </div>
+        <table class=" table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userList}">
+            <td scope="row" th:text="${user.id}">0</td>
+            <td th:text="${user.name}">none</td>
+            <td th:text="${user.age}"></td>
+            <td>
+                <a th:href="@{'/backShow/'+${user.id}}">修改</a>
+            </td>
+            <td>
+                <a th:href="@{'/delete/'+${user.id}}">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+      <div th:insert="~{footer :: copy}"></div>
+
+</body>
+</html>

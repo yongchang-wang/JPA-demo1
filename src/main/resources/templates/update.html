@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ch" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}">
+</head>
+<body class="container" >
+<div th:insert="~{head :: head1}"></div>
+<br>
+<h1>修改用户</h1>
+<br>
+<div class="with=:80%">
+    <form class="form-horizontal" th:action="@{/update}" method="post">
+
+        <input type="hidden"  name="id"  th:value="*{user.id}">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">name</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="name" id="name" placeholder="姓名" th:value="*{user.name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age" class="col-sm-2 control-label">age</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="age" id="age" placeholder="年龄" th:value="*{user.age}" >
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="submit" value="提交" class="btn btn-info">
+                &nbsp; &nbsp; &nbsp; &nbsp;
+              <a href="/" th:href="@{/}" class="btn btn-info">返回</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div th:insert="~{footer :: copy}"></div>
+</body>
+</html>

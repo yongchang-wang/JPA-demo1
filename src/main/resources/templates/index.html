@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html  lang="ch" xmlns="http://www.w3.org/1999/xhtml"
+               xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{title}"></title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<img th:src = "${map.src1}"/>
+<br>
+
+<img th:src="${map.src2}"/>
+<br>
+<span th:text="${person.name}"></span>
+<span th:text="${person.age}"></span>
+</body>
+</html>
